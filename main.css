@@ -1,0 +1,55 @@
+/* GLOBAL STYLING */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: monospace, "Courier New", Courier;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to right, tomato, salmon);
+  flex-direction: column;
+}
+
+section {
+  display: grid;
+  grid-template-columns: repeat(4, 8rem);
+  grid-template-rows: repeat(4, 8rem);
+  grid-gap: 2rem;
+  perspective: 850px;
+}
+
+/* MAIN STYLING */
+
+.card {
+  position: relative;
+  transform-style: preserve-3d;
+  transform: rotateY(0deg);
+  transition: transform 2s cubic-bezier(0.17, 0.873, 0.3, 1.265);
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 5px 15px;
+}
+
+.front,
+.back {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  pointer-events: none;
+}
+
+.back {
+  background: #fff;
+  backface-visibility: hidden;
+}
+
+.front {
+  transform: rotateY(-180deg);
+}
+
+.toggle {
+  transform: rotateY(180deg);
+}
